@@ -1,0 +1,124 @@
+import pandas as pd
+
+#Membaca sample data set Saham pada emiten APPLE
+df1 = pd.read_csv("AAPL Historical Data.csv")
+df1.head()
+
+#Melakukan data cleansing pada dataset saham emiten Apple
+df1 = pd.read_csv("AAPL Historical Data.csv")
+df1['Change %'] = df1['Change %'].str.rstrip('%').astype(float)
+df1['Vol.'] = df1['Vol.'].str.rstrip('M').astype(float)
+
+#sort apple stock data from the 10 biggest price
+df1.sort_values(["Price"],ascending=[False])[:10]
+
+#sort apple stock data from the 10 lowest price
+df1.sort_values(["Price"],ascending=[True])[:10]
+
+#access Apple stock data from index 35 to 45
+df1.loc[35:45]
+
+#Apple Stock Price sort fromm index 30 to 40
+df1.loc[30:40,"Price"]
+
+#Apple Stock Standard Deviation
+df1.std()
+
+#Apple stock Mean 
+df1.mean()
+
+#Apple stock Ekstremum min
+df1.min()
+
+#Apple Stock Ekstremum Max
+df1.max()
+
+#Apple Stock percentil 10%
+df1.quantile(0.1)
+
+#Apple Stock percentil 25%
+df1.quantile(0.25)
+
+#Apple Stock percentil 50%
+df1.quantile(0.5)
+
+#Apple Stock percentil 75%
+df1.quantile(0.75)
+
+#Apple Stock percentil 90%
+df1.quantile(0.9)
+
+#Apple Stock Frequency Distribution 
+df1.value_counts()
+
+#Descriptive statistics include those that summarize the central tendency, dispersion and shape of a dataset’s distribution
+#Statistik data saham emiten Apple 
+df1.describe()
+
+#membaca sample dataset saham pada emiten Google
+df2 = pd.read_csv("GOOGL Historical Data.csv")
+df2.head()
+
+#Melakukan data cleansing pada dataset saham emiten Google
+df2 = pd.read_csv("GOOGL Historical Data.csv")
+df2['Change %'] = df2['Change %'].str.rstrip('%').astype(float)
+df2['Vol.'] = df2['Vol.'].str.rstrip('MK').astype(float)
+df2['Price'] = df2['Price'].str.replace(',', '').astype(float)
+df2['Open'] = df2['Open'].str.replace(',', '').astype(float)
+df2['High'] = df2['High'].str.replace(',', '').astype(float)
+df2['Low'] = df2['Low'].str.replace(',', '').astype(float)
+
+#sort google stock data from the 10 biggest price
+df2.sort_values(["Price"],ascending=[False])[:10]
+
+#sort google stock data from the 10 lowest price
+df2.sort_values(["Price"],ascending=[True])[:10]
+
+#access google stock data from index 35 to 45
+df2.loc[35:45]
+
+#Google Stock Price sort from index 30 to 40
+df2.loc[30:40,"Price"]
+
+#Google Stock Standard Deviation 
+df2.std()
+
+#Google Stock Mean
+df2.mean()
+
+#Google Stock Ekstremum max
+df2.max()
+
+#Google Stock Ekstremum min
+df2.min()
+
+#Google Stock percentil 10%
+df2.quantile(0.1)
+
+#Google Stock percentil 25%
+df2.quantile(0.25)
+
+#Google Stock percentil 50%
+df2.quantile(0.5)
+
+#Google Stock percentil 75%
+df2.quantile(0.75)
+
+#Google Stock percentil 90%
+df2.quantile(0.9)
+
+#Google Stock Frequency Distribution 
+df2.value_counts()
+
+#Descriptive statistics include those that summarize the central tendency, dispersion and shape of a dataset’s distribution
+#Statistik data saham emiten Google 
+df2.describe()
+
+
+
+
+
+
+
+
+
